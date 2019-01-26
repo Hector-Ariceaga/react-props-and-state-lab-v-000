@@ -24,6 +24,16 @@ class App extends React.Component {
     })
   }
 
+  handleFindPetsClick = () => {
+    fetch('/api/pets')
+    .then(function(data) {
+      return data.json()
+    })
+    .then(function(pets) {
+      return pets
+    })
+  }
+
   render() {
     return (
       <div className="ui container">
@@ -33,7 +43,7 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters onChangeType={e => this.handleChangeType(e)}/>
+              <Filters onChangeType={e => this.handleChangeType(e)} onFindPetsClick={this.handleFindPetsClick}/>
             </div>
             <div className="twelve wide column">
               <PetBrowser />
