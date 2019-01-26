@@ -18,7 +18,7 @@ class App extends React.Component {
   handleChangeType = (e) => {
     this.setState({
       filters: {
-        ...this.state.filters
+        ...this.state.filters,
         type: e.target.value
       }
     })
